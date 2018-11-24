@@ -1,4 +1,5 @@
-import 'package:cakes_catalog/my_home_page.dart';
+import 'package:cakes_catalog/home_page.dart';
+import 'package:cakes_catalog/compra_page.dart';
 import 'package:flutter/material.dart';
 
 // 1. importar 'dart:async'
@@ -30,7 +31,7 @@ class _SplashScreemState extends State<SplashScreem> {
       // Pasará a la siguiente pantalla (contedido de login_page.dart)
       Navigator.of(context)
           .pushReplacement(MaterialPageRoute(builder: (context) {
-        return MyHomePage();
+        return HomePage();
       }));
     }
   }
@@ -39,12 +40,16 @@ class _SplashScreemState extends State<SplashScreem> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0.0,
         title: Text('Splash Screem'),
       ),
-      backgroundColor: Colors.red,
       // el contendido de la primera pantalla
       body: Center(
-        child: Icon(Icons.local_pizza,size: 200.0,),
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(image: AssetImage('assets/splash.png'))
+          ),
+        ),
       ),
     );
   }

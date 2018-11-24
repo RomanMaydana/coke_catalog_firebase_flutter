@@ -3,12 +3,12 @@ import 'package:cakes_catalog/list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class MyHomePage extends StatefulWidget {
+class CompraPage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _CompraPageState createState() => _CompraPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _CompraPageState extends State<CompraPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,11 +16,6 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('Pasteles Disponibles',style: TextStyle(color: Colors.black),),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
-          onPressed: () {},
-          color: Colors.black,
-        ),
       ),
       body: _buildBody(context),
     );
