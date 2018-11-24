@@ -124,7 +124,7 @@ class ListItemState extends State<ListItem> {
             ],
           )),
       actions: <Widget>[
-        FlatButton(onPressed: _confirmar, child: Text('OK')),
+        FlatButton(onPressed: _confirmar, child: Text('OK',style: TextStyle(color: Colors.red),)),
         FlatButton(
           onPressed: () {
             Navigator.pop(context);
