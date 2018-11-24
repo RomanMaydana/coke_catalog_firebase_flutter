@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "955251002973",
+    "firebase_url": "https://cakes-flutter.firebaseio.com",
+    "project_id": "cakes-flutter",
+    "storage_bucket": "cakes-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955251002973:android:8352d3ba358b58c5",
+        "android_client_info": {
+          "package_name": "com.roman.cakescatalog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "955251002973-nttgduqn4jjf317nrlego1vni5045f2r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLN09uh1ejAEXNelPs_5U_oZSkKDyX3L4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
