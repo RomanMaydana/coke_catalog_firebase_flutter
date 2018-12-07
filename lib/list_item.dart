@@ -77,7 +77,7 @@ class ListItemState extends State<ListItem> {
                               color: Colors.grey),
                         ),
                         Text(
-                          'USD ${widget.precio}',
+                          'Bs ${widget.precio}',
                           style: TextStyle(
                               fontFamily: 'Quicksand',
                               fontSize: 12.0,
@@ -113,23 +113,22 @@ class ListItemState extends State<ListItem> {
                 onSaved: (value) => _cantidad = value,
               ),
               TextFormField(
-                maxLength: 2,
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.text,
                 decoration: InputDecoration(
-                    labelText: 'MESA',
+                    labelText: 'NOMBRE CLIENTE',
                     labelStyle: TextStyle(fontStyle: FontStyle.italic)),
-                validator: (value) => value.isEmpty ? 'Ingrese mesa' : null,
+                validator: (value) => value.isEmpty ? 'Ingrese nombre' : null,
                 onSaved: (value) => _mesa = value,
               ),
             ],
           )),
       actions: <Widget>[
-        FlatButton(onPressed: _confirmar, child: Text('OK',style: TextStyle(color: Colors.red),)),
+        FlatButton(onPressed: _confirmar, child: Text('OK')),
         FlatButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          child: Text('CANCEL'),
+          child: Text('CANCEL',style: TextStyle(color:Colors.white),),
           color: Colors.red,
         ),
       ],
@@ -146,7 +145,7 @@ class ListItemState extends State<ListItem> {
       Map<String, String> data = <String, String>{
         "nombre": "${widget.nombre}",
         "cantidad": "$_cantidad",
-        "mesa": "$_mesa"
+        "nombreCliente": "$_mesa"
       };
       collectionReference
           .add(data)

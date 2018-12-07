@@ -1,5 +1,6 @@
 import 'package:cakes_catalog/home_page.dart';
-import 'package:cakes_catalog/compra_page.dart';
+import 'package:cakes_catalog/login_page.dart';
+
 import 'package:flutter/material.dart';
 
 // 1. importar 'dart:async'
@@ -31,7 +32,7 @@ class _SplashScreemState extends State<SplashScreem> {
       // Pasará a la siguiente pantalla (contedido de login_page.dart)
       Navigator.of(context)
           .pushReplacement(MaterialPageRoute(builder: (context) {
-        return HomePage();
+        return LoginPage();
       }));
     }
   }
@@ -44,13 +45,50 @@ class _SplashScreemState extends State<SplashScreem> {
         title: Text('Splash Screem'),
       ),
       // el contendido de la primera pantalla
-      body: Center(
-        child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage('assets/splash.png'))
-          ),
-        ),
-      ),
+      body: BodyPage(),
     );
   }
 }
+class BodyPage extends StatefulWidget {
+  @override
+  _BodyPageState createState() => _BodyPageState();
+}
+
+class _BodyPageState extends State<BodyPage> with TickerProviderStateMixin {
+  Animation<double> animation;
+  AnimationController animationController;
+
+  @override
+  void initState() {
+    super.initState();
+    animationController = AnimationController(
+        vsync: this, duration: Duration(milliseconds: 5000));
+    animation =
+        Tween<double>(begin: 20.0, end: 500.0).animate(animationController);
+
+    animation.addListener(() {
+      print(animation.value.toString());
+      setState(() {
+        print(animation.value.toString());
+      });
+    });
+    animation.addStatusListener((status) => print(status));
+    animationController.forward();
+  }
+  @override
+    void dispose() {
+      animationController.dispose();
+      super.dispose();
+    }
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: Container(
+          height: animation.value,
+          width: animation.value,
+          child: Image.asset('assets/cafe.png'),
+        ),
+      );
+  }
+}
+

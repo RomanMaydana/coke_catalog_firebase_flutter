@@ -1,32 +1,48 @@
 import 'package:cakes_catalog/cake.dart';
 import 'package:cakes_catalog/list_item.dart';
+import 'package:cakes_catalog/pedidos_list.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class CompraPage extends StatefulWidget {
+class CatalogoPage extends StatefulWidget {
   @override
-  _CompraPageState createState() => _CompraPageState();
+  _CatalogoPageState createState() => _CatalogoPageState();
 }
 
-class _CompraPageState extends State<CompraPage> {
+class _CatalogoPageState extends State<CatalogoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pasteles Disponibles',style: TextStyle(color: Colors.black),),
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
+        title: Text('Productos Disponibles',style: TextStyle(color: Colors.black),),
+        centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.list),
+            onPressed: (){
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (BuildContext context){
+                  return PedidosList();
+                }
+              ));
+            },
+          )
+        ],
       ),
       body: _buildBody(context),
     );
   }
 
   Widget _buildBody(BuildContext context) {
-    return StreamBuilder(
+    return StreamBuilder<QuerySnapshot>(
       stream: Firestore.instance.collection('cakes').snapshots(),
-      builder: (context, snapshot) {
-        if (!snapshot.hasData) return LinearProgressIndicator();
-        return _buildList(context, snapshot.data.documents);
+      builder: (context,snapshot){
+        if(snapshot.hasData){
+          return _buildList(context, snapshot.data.documents);
+        }
+        else{
+          return LinearProgressIndicator();
+        }
       },
     );
   }

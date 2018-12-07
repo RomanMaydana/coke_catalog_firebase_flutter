@@ -12,9 +12,8 @@ class _MyHomePageState extends State<PedidosList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pedidos',style: TextStyle(color: Colors.black),),
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
+        title: Text('Ventas',),
+        centerTitle: true,
       ),
       body: _buildBody(context),
     );
@@ -46,8 +45,8 @@ class _MyHomePageState extends State<PedidosList> {
         ),
         child: ListTile(
           title: Text(pedido.nombre),
-          subtitle: Text(pedido.mesa),
-          trailing: Text(pedido.cantidad),
+          subtitle: Text('Cliente: ${pedido.nombreCliente}'),
+          trailing: Text('Cantidad: ${pedido.cantidad}'),
         ),
       ),
     );
